@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>formulario</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2> Formulário de entrega </h2>
+
+  <div class="Forms">
+    <form id="formulario">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" required>
+
+      <label for="hobby">Hobby</label>
+      <input type="text" id="hobby" required>
+
+      <label for="redes">Redes</label>
+      <input type="text" id="redes" required>
+
+      <label for="futebol">Time de futebol</label>
+      <input type="text" id="futebol" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      
+      const dados = {
+        nome: document.getElementById("nome").value,
+        hobby: document.getElementById("hobby").value,
+        redes: document.getElementById("redes").value,
+        futebol: document.getElementById("futebol").value
+      };
+
+     
+      sessionStorage.setItem("dadosFormulario", JSON.stringify(dados));
+
+      
+      window.location.href = "resultado.html";
+    });
+  </script>
+</body>
+</html>

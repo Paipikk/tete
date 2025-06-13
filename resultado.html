@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado</title>
+</head>
+<body>
+  <p><strong>Nome:</strong> <span id="nome"></span></p>
+  <p><strong>Hobby:</strong> <span id="hobby"></span></p>
+  <p><strong>Redes sociais:</strong> <span id="redes"></span></p>
+  <p><strong>Time de futebol:</strong> <span id="futebol"></span></p>
+
+  <script>
+   
+    const dadosJSON = sessionStorage.getItem("dadosFormulario");
+    const dados = JSON.parse(dadosJSON);
+
+
+    if (dados) {
+      document.getElementById("nome").textContent = dados.nome || "Não informado";
+      document.getElementById("hobby").textContent = dados.hobby || "Não informado";
+      document.getElementById("redes").textContent = dados.redes || "Não informado";
+      document.getElementById("futebol").textContent = dados.futebol || "Não informado";
+    } else {
+      document.body.innerHTML = "<p>Dados não encontrados. Volte para o formulário.</p>";
+    }
+  </script>
+</body>
+</html>
